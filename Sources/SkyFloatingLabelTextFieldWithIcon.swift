@@ -29,7 +29,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     var iconTypeValue: Int {
         get {
-            return self.iconType.rawValue
+            self.iconType.rawValue
         }
 
         set(iconIndex) {

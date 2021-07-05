@@ -67,12 +67,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     /// A UIColor value that determines the text color of the editable text
     @IBInspectable
     override dynamic open var textColor: UIColor? {
+        get {
+            cachedTextColor
+        }
         set {
             cachedTextColor = newValue
             updateControl(false)
-        }
-        get {
-            return cachedTextColor
         }
     }
 
@@ -251,12 +251,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      Identifies whether the text object should hide the text being entered.
      */
     override open var isSecureTextEntry: Bool {
+        get {
+            super.isSecureTextEntry
+        }
         set {
             super.isSecureTextEntry = newValue
             fixCaretPosition()
-        }
-        get {
-            return super.isSecureTextEntry
         }
     }
 
@@ -277,7 +277,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     override open var isHighlighted: Bool {
         get {
-            return _highlighted
+            _highlighted
         }
         set {
             _highlighted = newValue
@@ -288,12 +288,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     open var editingOrSelected: Bool {
-        return super.isEditing || isSelected
+        super.isEditing || isSelected
     }
 
     /// A Boolean value that determines whether the receiver has an error message.
     open var hasErrorMessage: Bool {
-        return errorMessage != nil && errorMessage != ""
+        errorMessage != nil && errorMessage != ""
     }
 
     fileprivate var _renderingInInterfaceBuilder: Bool = false
@@ -606,7 +606,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     open func isErrorVisible() -> Bool {
-        return hasErrorMessage
+        hasErrorMessage
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {

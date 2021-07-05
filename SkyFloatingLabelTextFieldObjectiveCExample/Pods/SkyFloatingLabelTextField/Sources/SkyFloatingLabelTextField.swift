@@ -50,12 +50,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     /// A UIColor value that determines the text color of the editable text
     @IBInspectable
     override dynamic open var textColor: UIColor? {
+        get {
+            cachedTextColor
+        }
         set {
             cachedTextColor = newValue
             updateControl(false)
-        }
-        get {
-            return cachedTextColor
         }
     }
 
@@ -158,12 +158,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      Identifies whether the text object should hide the text being entered.
      */
     override open var isSecureTextEntry: Bool {
+        get {
+            super.isSecureTextEntry
+        }
         set {
             super.isSecureTextEntry = newValue
             fixCaretPosition()
-        }
-        get {
-            return super.isSecureTextEntry
         }
     }
 
@@ -183,7 +183,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     override open var isHighlighted: Bool {
         get {
-            return _highlighted
+            _highlighted
         }
         set {
             _highlighted = newValue
@@ -194,12 +194,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     open var editingOrSelected: Bool {
-        return super.isEditing || isSelected
+        super.isEditing || isSelected
     }
 
     /// A Boolean value that determines whether the receiver has an error message.
     open var hasErrorMessage: Bool {
-        return errorMessage != nil && errorMessage != ""
+        errorMessage != nil && errorMessage != ""
     }
 
     fileprivate var _renderingInInterfaceBuilder: Bool = false
@@ -440,7 +440,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: True if the title is displayed on the control, false otherwise.
      */
     open func isTitleVisible() -> Bool {
-        return hasText || hasErrorMessage || _titleVisible
+        hasText || hasErrorMessage || _titleVisible
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
@@ -554,7 +554,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      -returns: the calculated height of the textfield. Override to size the textfield with a different height
      */
     open func textHeight() -> CGFloat {
-        return self.font!.lineHeight + 7.0
+        self.font!.lineHeight + 7.0
     }
 
     // MARK: - Layout
@@ -587,7 +587,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
     }
 
     // MARK: - Helpers
