@@ -20,7 +20,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      A Boolean value that determines if the language displayed is LTR. 
      Default value set automatically from the application language settings.
      */
-    open var isLTRLanguage: bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+    open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
            updateTextAligment()
         }
@@ -77,7 +77,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if let placeholder = placeholder, let font = placeholderFont ?? font {
                 attributedPlaceholder = NSAttributedString(
                     string: placeholder,
-                    attributes: [NSForegroundColorAttributeName: placeholderColor, NSFontAttributeName: font]
+                    attributes: [NSAttributedStringKey.foregroundColor: placeholderColor, NSAttributedStringKey.font: font]
                 )
         }
     }
@@ -175,7 +175,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// The backing property for the highlighted property
-    fileprivate var _highlighted: bool = false
+    fileprivate var _highlighted: Bool = false
 
     /**
      A Boolean value that determines whether the receiver is highlighted.
@@ -282,7 +282,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     /**
      Invoked when the editing state of the textfield changes. Override to respond to this change.
      */
-    open func editingChanged() {
+    @objc open func editingChanged() {
         updateControl(true)
         updateTitleLabel(true)
     }
@@ -417,7 +417,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateTitleVisibility(animated)
     }
 
-    fileprivate var _titleVisible: bool = false
+    fileprivate var _titleVisible: Bool = false
 
     /*
     *   Set this value to make the title visible
