@@ -664,7 +664,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
+				VALID_ARCHS = "arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -688,7 +688,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
+				VALID_ARCHS = "arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
