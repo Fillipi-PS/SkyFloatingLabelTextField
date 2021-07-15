@@ -77,7 +77,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if let placeholder = placeholder, let font = placeholderFont ?? font {
                 attributedPlaceholder = NSAttributedString(
                     string: placeholder,
-                    attributes: [NSAttributedStringKey.foregroundColor: placeholderColor, NSAttributedStringKey.font: font]
+                    attributes: [NSAttributedStringKey.foregroundColor: placeholderColor,
+                                 NSAttributedStringKey.font: font]
                 )
         }
     }
